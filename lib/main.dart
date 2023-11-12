@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           primaryColor: Color(0xFFd9f6fc),
       ),
       debugShowCheckedModeBanner: false,
-      home: RecipeDetail(),
+      home: HomePage(),
     );
   }
 }

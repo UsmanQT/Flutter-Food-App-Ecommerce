@@ -10,37 +10,37 @@ String recipeToJson(Recipe data) => json.encode(data.toJson());
 
 class Recipe {
   Recipe({
-    this.vegetarian,
-    this.vegan,
-    this.glutenFree,
-    this.dairyFree,
-    this.veryHealthy,
-    this.cheap,
-    this.veryPopular,
-    this.sustainable,
-    this.weightWatcherSmartPoints,
-    this.gaps,
-    this.lowFodmap,
-    this.aggregateLikes,
-    this.spoonacularScore,
-    this.healthScore,
-    this.pricePerServing,
-    this.extendedIngredients,
-    this.id,
-    this.title,
-    this.readyInMinutes,
-    this.servings,
-    this.sourceUrl,
-    this.image,
-    this.imageType,
-    this.summary,
-    this.cuisines,
-    this.dishTypes,
-    this.diets,
-    this.occasions,
-    this.winePairing,
+    required this.vegetarian,
+    required this.vegan,
+    required this.glutenFree,
+    required this.dairyFree,
+    required this.veryHealthy,
+    required this.cheap,
+    required this.veryPopular,
+    required this.sustainable,
+    required this.weightWatcherSmartPoints,
+    required this.gaps,
+    required this.lowFodmap,
+    required this.aggregateLikes,
+    required this.spoonacularScore,
+    required this.healthScore,
+    required this.pricePerServing,
+    required this.extendedIngredients,
+    required this.id,
+    required this.title,
+    required this.readyInMinutes,
+    required this.servings,
+    required this.sourceUrl,
+    required this.image,
+    required this.imageType,
+    required this.summary,
+    required this.cuisines,
+    required this.dishTypes,
+    required this.diets,
+    required this.occasions,
+    required this.winePairing,
     this.instructions,
-    this.analyzedInstructions,
+    required this.analyzedInstructions,
     this.sourceName,
     this.creditsText,
     this.originalId,
@@ -158,20 +158,20 @@ class Recipe {
 
 class ExtendedIngredient {
   ExtendedIngredient({
-    this.id,
-    this.aisle,
-    this.image,
-    this.consistency,
-    this.name,
-    this.nameClean,
-    this.original,
-    this.originalString,
-    this.originalName,
-    this.amount,
-    this.unit,
-    this.meta,
-    this.metaInformation,
-    this.measures,
+    required this.id,
+    required this.aisle,
+    required this.image,
+    required this.consistency,
+    required this.name,
+    required this.nameClean,
+    required this.original,
+    required this.originalString,
+    required this.originalName,
+    required this.amount,
+    required this.unit,
+    required this.meta,
+    required this.metaInformation,
+    required this.measures,
   });
 
   int id;
@@ -193,7 +193,7 @@ class ExtendedIngredient {
     id: json["id"],
     aisle: json["aisle"],
     image: json["image"],
-    consistency: consistencyValues.map[json["consistency"]],
+    consistency: consistencyValues.map[json["consistency"]]!,
     name: json["name"],
     nameClean: json["nameClean"],
     original: json["original"],
@@ -233,8 +233,8 @@ final consistencyValues = EnumValues({
 
 class Measures {
   Measures({
-    this.us,
-    this.metric,
+    required this.us,
+    required this.metric,
   });
 
   Metric us;
@@ -253,9 +253,9 @@ class Measures {
 
 class Metric {
   Metric({
-    this.amount,
-    this.unitShort,
-    this.unitLong,
+    required this.amount,
+    required this.unitShort,
+    required this.unitLong,
   });
 
   double amount;
@@ -286,8 +286,8 @@ class WinePairing {
 }
 
 class EnumValues<T> {
-  Map<String, T> map;
-  Map<T, String> reverseMap;
+  late Map<String, T> map;
+  late Map<T, String> reverseMap;
 
   EnumValues(this.map);
 

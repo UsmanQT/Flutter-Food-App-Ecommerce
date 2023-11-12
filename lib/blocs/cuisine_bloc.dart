@@ -7,10 +7,10 @@ import 'package:http/http.dart';
 
 enum CuisineAction { Fetch, delete }
 class CuisineEvent {
-  final String title;
+  final String? title;
   final CuisineAction status;
 
-  CuisineEvent({this.title,this.status});
+  CuisineEvent({required this.title, required this.status});
 }
 
 class CuisineBloc {
@@ -26,7 +26,7 @@ class CuisineBloc {
     eventStream.listen((event) async {
       if(event.status == CuisineAction.Fetch) {
         try {
-          var cuisines = await getCuisines(event.title);
+          var cuisines = await getCuisines(event.title!);
           print(cuisines);
           cuisineSink.add(cuisines.searchResults[0].results);
         } on Exception catch (e) {

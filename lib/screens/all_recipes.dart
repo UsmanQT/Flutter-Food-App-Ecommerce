@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:food_app/blocs/cuisine_bloc.dart';
@@ -65,7 +67,7 @@ class _AllRecipesScreenState extends State<AllRecipesScreen> {
                 bottom: PreferredSize(
                     child: TabBar(
                         isScrollable: true,
-                        unselectedLabelColor: Colors.blue[900].withOpacity(0.3),
+                        unselectedLabelColor: Colors.blue[900]!.withOpacity(0.3),
                         tabs: [
                           Tab(
                             child: Text('All'),
@@ -129,7 +131,7 @@ class CuisineCard extends StatelessWidget {
   final String description;
   final String imageUrl;
 
-  CuisineCard({this.title, this.description, this.imageUrl});
+  CuisineCard({required this.title, required this.description, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {

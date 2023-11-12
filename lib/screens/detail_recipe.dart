@@ -26,9 +26,9 @@ class _RecipeDetailState extends State<RecipeDetail> {
             if(snapshot.hasData){
               return Expanded(
                 child: ListView.builder(
-                    itemCount: snapshot.data.length,
+                    itemCount: 2,
                     itemBuilder: (context, index) {
-                      var result = snapshot.data[index];
+                      var result = snapshot.data;
                       return GestureDetector(
                         onTap: () {
                           //cuisineBloc.eventSink.add(CuisineAction.Fetch);
@@ -44,10 +44,10 @@ class _RecipeDetailState extends State<RecipeDetail> {
                                     margin: EdgeInsets.all(10),
                                     child: ClipRRect (
                                       borderRadius: BorderRadius.circular(30.0),
-                                      child: Image.network(result.image, height: 100.0, width: 100.0,),
+                                      child: Image.network("/Users/usmanq/old_projects/Flutter-food-app/assets/taco.png", height: 100.0, width: 100.0,),
                                     ),
                                   ),
-                                  Expanded(child: Text(result.name))
+                                  Expanded(child: Text("Tacox"))
                                 ],
                               )),
                         ),

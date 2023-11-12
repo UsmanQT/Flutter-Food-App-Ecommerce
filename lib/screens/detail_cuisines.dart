@@ -7,7 +7,7 @@ class CuisineDetail extends StatefulWidget {
   final String title;
   final String imageUrl;
 
-  CuisineDetail({this.title, this.imageUrl});
+  CuisineDetail({required this.title, required this.imageUrl});
 
   @override
   _CuisineDetailState createState() => _CuisineDetailState();
@@ -81,9 +81,9 @@ class _CuisineDetailState extends State<CuisineDetail> {
                   if(snapshot.hasData) {
                     return Expanded(
                       child: ListView.builder(
-                        itemCount: snapshot.data.length,
+                        itemCount: snapshot.data?.length,
                           itemBuilder: (context, index) {
-                          var result = snapshot.data[index];
+                          var result = snapshot.data?[index];
                         return GestureDetector(
                           onTap: () {
                             //cuisineBloc.eventSink.add(CuisineAction.Fetch);
@@ -99,7 +99,7 @@ class _CuisineDetailState extends State<CuisineDetail> {
                                       margin: EdgeInsets.all(10),
                                       child: ClipRRect (
                                         borderRadius: BorderRadius.circular(30.0),
-                                          child: Image.network(result.image, height: 100.0, width: 100.0,),
+                                          child: Image.network(result!.image, height: 100.0, width: 100.0,),
                                       ),
                                     ),
                                     Expanded(child: Text(result.name))

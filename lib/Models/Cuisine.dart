@@ -10,16 +10,16 @@ String cuisineToJson(Cuisine data) => json.encode(data.toJson());
 
 class Cuisine {
   Cuisine({
-    this.sorting,
-    this.filterMapping,
-    this.filterOptions,
-    this.activeFilterOptions,
-    this.query,
-    this.totalResults,
-    this.limit,
-    this.offset,
-    this.searchResults,
-    this.expires,
+    required this.sorting,
+    required this.filterMapping,
+    required this.filterOptions,
+    required this.activeFilterOptions,
+    required this.query,
+    required this.totalResults,
+    required this.limit,
+    required this.offset,
+    required this.searchResults,
+    required this.expires,
   });
 
   String sorting;
@@ -72,11 +72,11 @@ class FilterMapping {
 
 class SearchResult {
   SearchResult({
-    this.name,
-    this.type,
-    this.totalResults,
-    this.totalResultsVariants,
-    this.results,
+    required this.name,
+    required this.type,
+    required this.totalResults,
+    required this.totalResultsVariants,
+    required this.results,
   });
 
   String name;
@@ -104,14 +104,14 @@ class SearchResult {
 
 class Result {
   Result({
-    this.id,
-    this.name,
-    this.image,
-    this.link,
-    this.type,
-    this.relevance,
-    this.content,
-    this.dataPoints,
+    required this.id,
+    required this.name,
+    required this.image,
+    required this.link,
+    required this.type,
+    required this.relevance,
+    required this.content,
+    required this.dataPoints,
   });
 
   int id;
@@ -128,10 +128,10 @@ class Result {
     name: json["name"],
     image: json["image"] == null ? null : json["image"],
     link: json["link"] == null ? null : json["link"],
-    type: typeValues.map[json["type"]],
+    type: typeValues.map[json["type"]]!,
     relevance: json["relevance"].toDouble(),
     content: json["content"] == null ? null : json["content"],
-    dataPoints: json["dataPoints"] == null ? null : List<dynamic>.from(json["dataPoints"].map((x) => x)),
+    dataPoints: List<dynamic>.from(json["dataPoints"].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
@@ -155,7 +155,7 @@ final typeValues = EnumValues({
 
 class EnumValues<T> {
   Map<String, T> map;
-  Map<T, String> reverseMap;
+  late Map<T, String> reverseMap;
 
   EnumValues(this.map);
 

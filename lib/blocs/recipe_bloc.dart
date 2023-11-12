@@ -9,7 +9,7 @@ class RecipeEvent {
   final String id;
   final RecipeAction status;
 
-  RecipeEvent({this.id,this.status});
+  RecipeEvent({required this.id,required this.status});
 }
 
 class RecipeBloc {
